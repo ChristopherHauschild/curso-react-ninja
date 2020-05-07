@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.1.0/react-dom.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1> Hello World </h1>
+    <div id="app"></div>
+    <script>
+        var h1 = React.createElement('h1', null, [
+            React.createElement('span', null, React.createElement(
+                'i', null, 'Itálico'
+            )), 
+            React.createElement('span', null, 'Texto do span 2')]
+        );
+        ReactDOM.render(h1, document.getElementById('app'))
+        console.log(h1);
+    </script>
+</body>
+</html>
