@@ -1,0 +1,49 @@
+// import LikeButton from './like-button'
+// import SearchButton from './search-button'
+
+// class App extends Component {
+//   constructor() {
+//     super() // Executa componente pai
+//     this.state = {
+//       text: 'Estado inicial'
+//     }
+//   }
+//   render() {
+//     return (
+//       <div className='container' onClick={() => this.setState({
+//         text: 'Outro texto'
+//       })}>
+//        {this.state.text}
+//       </div>
+//     )
+//   }
+// }
+
+// App.defaultPropries = {
+//   xxx: 'xxxx'
+// }
+
+// const App = React.createClass({
+//   render: function () {
+//     return (
+//       <div className='container'>
+//         <Title name='Christopher' />
+//       </div>
+//     )
+//   }
+// })
+
+
+// render() {
+//   console.log('render')
+//   return (
+//     <div>
+//     <Square color={this.state.color}/>
+//     {['red', 'green', 'blue'].map((color) => (
+//         <Button key={color} 
+//         handleClick={() => this.setState({ color })}>
+//         { color }</Button>
+//     ))}
+//     </div>
+//   )
+// }
