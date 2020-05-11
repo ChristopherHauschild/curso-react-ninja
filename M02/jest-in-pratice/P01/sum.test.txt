@@ -1,0 +1,16 @@
+// 1° param -> Descrição teste
+// 2° param -> Função
+
+// describe -> Cria escopo no Módulo
+describe('# ESCOPO', () => { 
+    it('Testando Jest 01', () => {})
+    it('Testando Jest 02', () => {})
+}) 
+
+it('Testando Jest 03', () => {
+    console.assert(1 === 1, '1 não é igual 2')
+})
+
+it('Testando Jest 04', () => {
+    expect(1).toBe(1)
+})
