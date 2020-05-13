@@ -8,6 +8,10 @@ Iniciado em 03/05/2020
 
 Curso disponibilizado pelo desenvolvedor <a hrfe="https://github.com/fdaciuk">Fernando Daciuk</a> através da plataforma Udemy. O curso visa a preparação para o mercado de trabalho na área do desenvolvimento com React.js, e para isso conta com mais de 470 aulas que aprofundam os fundamentos desta biblioteca JavaScript e também focam na criação de aplicações.
 
+<p align="center">
+  <img width="900px" src="https://github.com/ChristopherHauschild/curso-react-ninja/blob/master/logoRN.png?raw=true" />
+</p>
+
 ## O que você irá aprender neste curso: :heavy_check_mark:
 <ul>
   <li>Criar aplicações utilizando o React.js de forma correta.</li>
