@@ -1,0 +1,24 @@
+@charset 'utf-8';
+
+.actions {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .actions .btn1 {
+    padding: 10px;
+    margin-right: 10px;
+    width: 200px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .actions .btn2 {
+    padding: 15px;
+    width: 200px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }

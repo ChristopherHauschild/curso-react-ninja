@@ -6,6 +6,7 @@ const validate = require('webpack-validator')
 
 const HtmlPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 
 module.exports = validate({
   devtool: 'source-map',
@@ -24,11 +25,13 @@ module.exports = validate({
   },
 
   plugins: [
+    new DashboardPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin('[name]-[hash].css'),
+    new ExtractTextPlugin('[name]-[hash].css'), // Todo css num plugin
+    
     new HtmlPlugin({
       title: 'GitHub App',
-      template: path.join(__dirname, 'src', 'html', 'template.html')
+      template: path.join(__dirname, 'src', 'html', 'template-dev.html')
     })
   ],
 
@@ -49,7 +52,14 @@ module.exports = validate({
       test: /\.css$/,
       exclude: /node_modules/,
       include: /src/,
-      loaders: ['style', 'css']
+      loaders: ['style', 'css'] // configura nomes para componentes css
     }]
+  },
+  
+  resolve: {
+    alias: { // Mapear caminhos
+      src: path.join(__dirname, 'src'), //__dirname -> diretório raiz
+      components: path.join(__dirname, 'src', 'components')
+    }
   }
 })

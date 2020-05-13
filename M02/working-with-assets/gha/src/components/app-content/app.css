@@ -1,0 +1,38 @@
+@charset 'utf-8';
+
+.app {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+  
+.app .loading {
+    align-self: center;
+    font-size: 1.8rem;
+    color: #fff;
+    margin-top: 20px;
+}
+
+ul {
+  list-style: none;
+  width: 100%;
+  padding: 0px 10px;
+  list-style: none;
+  align-self: start;
+}
+
+.repos-container {
+  display: flex;
+  justify-content: space-between;
+  float: left;
+  width: 100%;
+}
+
+.repos-container > div {
+  margin-right: 20px;
+  width: 100%
+}
+
+.repos-container :first-child {
+  margin-left: 0;
+}
