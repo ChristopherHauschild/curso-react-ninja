@@ -1,3 +1,9 @@
+### Curso em andamento :calendar:
+
+Iniciado em 03/05/2020
+
+<hr>
+
 # Curso React.js Ninja - React Completo
 
 Curso disponibilizado pelo desenvolvedor <a hrfe="https://github.com/fdaciuk">Fernando Daciuk</a> através da plataforma Udemy. O curso visa a preparação para o mercado de trabalho na área do desenvolvimento com React.js, e para isso conta com mais de 470 aulas que aprofundam os fundamentos desta biblioteca JavaScript e também focam na criação de aplicações.
