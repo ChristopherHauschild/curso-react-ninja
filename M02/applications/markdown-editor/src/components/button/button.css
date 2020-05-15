@@ -1,0 +1,29 @@
+@charset 'utf8';
+
+.button {
+    align-items: center;
+    color: #fff;
+    display: flex;
+    margin: 0;
+    padding: 0 20px;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.25s ease-in-out;
+}
+  
+.button.-danger{
+    background-color: rgb(179, 0, 0);
+}
+  
+.button.-danger:hover {
+    background-color: darkred;
+}
+  
+.button.-success {
+    background-color: rgb(37, 87, 104);
+}
+  
+.button.-success:hover {
+    background-color: rgb(8, 8, 58)
+}
