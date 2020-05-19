@@ -1,0 +1,18 @@
+- Princípios Redux
+  -> Single Source of True
+  -> State is readonly
+  -> Changes are made with pure functions
+
+- reducer
+  -> função pura que recebe o estado atual
+     da aplicação e uma ação, e retorna um
+     novo estado - function xxx(state, action)
+
+-> ex: 
+  const counter = (state = 0, action) => {
+    switch (action.type) {
+      case 'INCREMENT': return state + 1
+      case 'DECREMENT': return state - 1
+    }
+    return state
+  }
