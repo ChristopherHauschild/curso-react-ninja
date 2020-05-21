@@ -1,0 +1,32 @@
+@charset 'utf-8';
+
+.form-table {
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+  margin-top: 40px;
+}
+
+thead {
+  margin-bottom: 100px;
+}
+
+thead td {
+  border-bottom: 2px solid #0002;
+  background-color: #0001;
+  text-align: center;
+  padding: 5px;
+}
+
+tbody td {
+  border-bottom: 1px solid #0002;
+  text-align: center;
+  padding: 5px;
+}
+
+.cep-not-found {
+  margin-top: 30px;
+  margin-left: 4%;
+}
