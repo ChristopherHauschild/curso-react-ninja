@@ -1,0 +1,76 @@
+component > render > children
+
+- match:
+  -> informações com base em como a rota casou com o component
+
+  -> path: '/...', url: '/...', isExact: boolean, params: {...}
+  -> props recebem match por herança
+
+- location:
+  -> informações com base na rota atual 
+
+  -> pahtName: '/...', search: '', hash: '', state: '', key: ''
+    
+    > pahtName: path que casou com component
+    
+    > key: id com base no Object location 
+      > Home (path='/') não possui key
+    
+    > hash: quandp alguma tag a possui href com #
+    
+    > search: passa informações de queryStrings
+      > informações a partir de url '/?chave=valor&id=1&city=venâncio'
+      > biblioteca 'query-string' pode ser utilizada
+
+    > state: salvar informações na rota no momento da navegação
+
+  ex search:
+    {console.log(
+      'locationn search',
+      location.search
+        .replace('?', '')
+        .split('&') // quebrando valores antes e após & em um array
+        .reduce((acc, item) => {
+          const [key, value] = item.split('=')
+          if (acc[key]) {
+            acc[key] = [acc[key]].concat(value)
+          } else {
+            acc[key] = value // key: valor antes de '=' | value: valor após '='
+          }
+
+          return acc
+        }, {}) // retorna objeto com valores do array
+    )}
+
+
+- history:
+  -> objeto mutável 
+  -> histórico de navegação do component
+
+  -> action, block, creeateHref, go, goBack, length, listen, location, push, replace
+    
+    > location: mesmo objeto location da rota
+    > length: quantidade de páginas no histórico
+    
+    > push:
+      > empurra novo valor para history do elemento
+      > (path, [state])
+    
+    > replace:
+      > atualiza página com informação passada
+      > (path, [state])
+      > não adiciona navegação ao <- retornar ou avançar -> do browser
+
+    > action:
+      > POP, REPLACE, PUSH
+      > ação do que está acontecendo com navegação
+
+    > goBack():
+      > mesma ação que o <- retornar do browser
+    
+    > goForward():
+      > mesma ação que o avançar -> do browser
+
+    > go(n):
+      > recebe quantidade de páginas como argumento
+      > realiza ação de <- retornar ou avançar -> seguindo número de pags passado como param

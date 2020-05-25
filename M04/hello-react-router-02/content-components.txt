@@ -1,0 +1,77 @@
+- Switch:
+  -> envolve certa quantidade de rotas p/ fazer que apenas
+     uma dessas rotas seja carregada
+
+ex: utilizada para injetar erro 404 corretamente
+  -> <Route component={Error404} />
+
+
+
+- Rotas dinâmicas:
+
+ex1: <Route path='/(sobre|contato)' component={Page} />
+
+  const Page = ({ match }) => (
+    <h1>{match.url}</h1>
+  )
+
+ex2: <Switch>
+      <Route exact path='/blog' component={NoPost} />
+      <Route path='/blog/:post(post-[12])' component={Post} />
+      <Route component={Post404} />
+    </Switch>
+
+
+
+- NavLink:
+  -> semelhante ao Link
+  -> adiciona class active para rota navegada
+      -> class pode ser alterada com activeClassName=''
+      -> style class pode ser alterado com activeStyle
+
+
+- Pattern _ Render Props:
+
+  - > propriedade que recebe função e retorna component
+
+  ex:
+      const Link = (props) => (
+        <Route path={props.to} exact={props.exact}>
+          {({ match, history }) => (
+            <a
+              href={props.to}
+              style={match ? { color: 'red' } : null}
+              onClick={(e) => {
+                e.preventDefault()
+                history.push(props.to)
+              }}
+            >{props.children}</a>
+          )}
+        </Route>
+      )
+
+
+- Redirect:
+  -> redirecionamento de rota
+  -> action do tipo REPLACE
+  
+  -> ex: <Route path='/voltar-para-home' render={() => <Redirect to='/' />} />
+        ou
+         <Redirect from='voltar-para-home' to='/' />
+
+  -> ex de uso: redirecionar usuário que não está logado
+
+
+- Prompt:
+  -> bloqueio de navegação
+  -> ex de uso: bloquer navegação para outra página com formulário não totalmente preenchido
+  -> <Prompt when={boolean} message='string' />
+
+
+- HashRouter:
+  -> engloba app estabelecendo conexões, semelhante ao Provider do Redux
+  -> substitui BrowserRouter
+  -> permite navegação através de hash #
+  -> utilizado quando não há redirecionamento de páginas não existentes
+
+  -> recomendado utilizar BrowserRouter na web

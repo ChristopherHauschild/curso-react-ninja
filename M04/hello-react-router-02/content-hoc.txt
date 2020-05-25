@@ -1,0 +1,24 @@
+- withRouter()
+  -> passa para o component props de Route
+  -> retorna novo component passando props
+  -> wrappedComponent() - para passar component puro
+
+ex:
+  const ButtonBack_ = ({ history }) => (
+    <button onClick={(e) => history.goBack()}>{'<-'} Voltar</button>
+  )
+
+  const ButtonBack = withRouter(ButtonBack_)
+
+  const ButtonForward_ = ({ history }) => (
+    <button onClick={(e) => history.goForward()}>Próxima página {'->'}</button>
+  )
+
+  const ButtonForward = withRouter(ButtonForward_)
+
+  ...
+
+  <ul>
+    <li><ButtonBack /></li>
+    <li><ButtonForward /></li>
+  </ul>

@@ -1,0 +1,53 @@
+
+- prop "render":
+  -> passar prop específica para component
+  
+  -> recebe função que retorna um component
+  ex: 
+    render={() => <NoPost numberOfPosts={2} />
+      
+    const NoPost = ({ numberOfPosts }) => (
+      <p>Selecione um dos {numberOfPosts} post</p>
+    )
+
+    ou
+
+    render={() => <p>Selecione um post</p>} 
+
+    ou ainda
+
+    render={(props) => <NoPost numberOfPosts={2} {...props} />}
+
+    const NoPost = ({ numberOfPosts, match, history ... }) => (
+      <p>Selecione um dos {numberOfPosts} post</p>
+    )
+
+
+
+- prop "children":
+  -> ex: pode ser utilizado para fazer animação
+  -> component sempre está em tela
+  -> recebe mesmas props que os demais componentes Route
+
+  -> <Route path=''>
+      {() => (
+                  
+      )}
+    </Route>
+
+    ou ainda
+
+  const Link = (props) => (
+    <Route path={props.to} exact={props.exact}>
+      {({ match, history }) => (
+        <a
+          href={props.to}
+          style={match ? { color: 'red' } : null}
+          onClick={(e) => {
+            e.preventDefault()
+            history.push(props.to)
+          }}
+        >{props.children}</a>
+      )}
+    </Route>
+  )
