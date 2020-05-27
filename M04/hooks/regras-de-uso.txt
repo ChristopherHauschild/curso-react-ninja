@@ -1,0 +1,8 @@
+- criação de estados deve ser sempre no início da função
+
+- estados não devem ser criados dentro de blocos condicionais ou loopings
+
+- utilizar hooks em componentes de função ou hooks personalzados
+  -> nunca em class components
+
+- Hooks devem sempre começar em use

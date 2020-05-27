@@ -1,0 +1,193 @@
+- Possibilidade de usar estado em funções
+- Evitar uso de classes - substituir por componentes de função
+- É possível utilizar classes e hooks no mesmo app
+- Hooks não funcionam dentro de class
+
+- useState:
+  -> utilizado para tratar o estado da aplicação
+  -> retorna um array com valor inicial do estado e uma função
+     -> ex: const[counter, setCounter] = useState(0)
+
+  ex:
+    function CounterFunction () {
+      const [counter, setCounter] = useState(0)
+
+      return (
+        <Counter
+          counter={counter}
+          increment={() => {
+            // setCounter renderiza novamente o component com novo estado
+            setCounter(c => c + 1)
+          }}
+
+          decrement={() => {
+            // ======= mesmo que prevState, pegando ultimo estado e aplicando lógica
+            setCounter(c => c - 1)
+          }}
+        />
+      )
+    }
+
+
+    ====== adicionando mais um state ========
+
+    function CounterFunction() {
+      const [counter, setCounter] = useState(0)
+      const [toggle, setToggle] = useState(false)
+
+      return (
+        <>
+          <Counter
+            counter={counter}
+            increment={() => {
+              // setCounter renderiza novamente o component com novo estado
+              setCounter(c => c + 1)
+            }}
+
+            decrement={() => {
+              // ======= mesmo que prevState
+              setCounter(c => c - 1)
+            }}
+          />
+
+          {toggle && <h1>Visível</h1>}
+
+          <button
+            onClick={() => {
+              setToggle(!toggle)
+            }}>
+            Toggle
+          </button>
+        </>
+      )
+    }
+
+    ===== utilizando objetos ======
+
+  function CounterFunction() {
+  const [state, setState] = useState({
+    counter: 0,
+    toggle: false
+  })
+
+  return (
+    <>
+      <Counter
+        counter={state.counter}
+        increment={() => {
+          // setCounter renderiza novamente o component com novo estado
+          setState(prevState=> {
+            return {
+              ...prevState,
+              counter: prevState.counter + 1
+            }
+          })
+        }}
+
+        decrement={() => {
+          setState(prevState=> {
+            return {
+              ...prevState,
+              counter: prevState.counter - 1
+            }
+          })
+        }}
+      />
+
+      {state.toggle && <h1>Visível</h1>}
+      <button
+        onClick={() => {
+          setState((prevState) => {
+            return {
+              ...prevState,
+              toggle: !prevState.toggle
+            }
+          })
+        }}>
+        Toggle
+      </button>
+    </>
+  )
+  }
+
+
+  ===== efeito colateral =====
+  -> manipulação do DOM, requests ...
+
+  import { useEffect } from 'react'
+
+  function CounterFunction() {
+  const [counter, setCounter] = useState(0)
+
+  // executa quando component faz alguma atualização
+  useEffect(() => {
+    document.title = `CounterFunction: ${counter}`
+  })
+
+  return (
+    <>
+      <Counter
+        counter={counter}
+        increment={() => {
+          // setCounter renderiza novamente o component com novo estado
+          setCounter(c => c + 1)
+        }}
+
+        decrement={() => {
+          // ======= mesmo que prevState
+          setCounter(c => c - 1)
+        }}
+      />
+    </>
+  )
+}
+
+  ====== useEffect condicional ======
+
+  function CounterFunction () {
+  const [counter, setCounter] = useState(0)
+  const [toggle, setToggle] = useState(false)
+
+  // executa sempre que component atualiza
+  useEffect(() => {
+    console.log('useEffect')
+    document.title = `CounterFunction: ${counter}`
+  }, [counter])
+  // só quando counter mudar useEffect executa
+
+  return (
+    <>
+      <Counter
+        counter={counter}
+        increment={() => {
+          setCounter(counter => counter + 1)
+        }}
+
+        decrement={() => {
+          setCounter(counter => counter - 1)
+        }}
+      />
+
+      {toggle && <h1>Toggle</h1>}
+      <button onClick={() => setToggle(!toggle)}>Toggle</button>
+    </>
+  )
+}
+
+
+  ===== useEffect executando somente uma vez ====
+
+  
+  useEffect(() => {
+    console.log('componentDidMount')
+    setInterval(() => {
+      setCounter((counter) => counter + 1)
+    }, 1000)
+  }, [])
+
+  useEffect(() => {
+    document.title = `CounterFunction: ${counter}`
+  }, [counter])
+
+  ===== Hooks personalizados =====
+  -> todo hook deve iniciar com use

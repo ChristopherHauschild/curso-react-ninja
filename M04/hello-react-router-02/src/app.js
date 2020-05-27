@@ -18,7 +18,6 @@ export default App
 
 // <Route component={MainApp} />
 
-
 // ======= OU (EM MAIN APP) =======
 
 // export default withRouter()(MainApp)
