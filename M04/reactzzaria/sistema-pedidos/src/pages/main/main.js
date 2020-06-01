@@ -1,25 +1,43 @@
-import React, { Fragment } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import React, { Suspense } from 'react'
+import { Switch, Route } from 'react-router-dom'
 
-const routes = [
-  { path: '/rota1', content: 'Rota 1' },
-  { path: '/rota2', content: 'Rota 2' }
-]
+import { withStyles, LinearProgress } from '@material-ui/core'
+import Header from './header'
+
+import * as routes from 'routes'
+
+const ChoosePizzaSize = React.lazy(() => import('pages/choose-pizza-size'))
+const ChoosePizzaFlavours = React.lazy(() => import('pages/choose-pizza-flavours'))
+const ChoosePizzaQuantity = React.lazy(() => import('pages/choose-pizza-quantity'))
+const Checkout = React.lazy(() => import('pages/checkout'))
+const CheckoutConfirmation = React.lazy(() => import('pages/checkout-confirmation'))
+const CheckoutSuccess = React.lazy(() => import('pages/checkout-success'))
 
 const Main = () => (
-  <Fragment>
-    <h1>Main</h1>
+  <>
+    <Header />
 
-    <Switch>
-      {routes.map(route => (
-        <Route
-          key={route.path}
-          path={route.path}
-          render={() => <h2>{route.content}</h2>}
-        />
-      ))}
-    </Switch>
-  </Fragment>
+    <Spacer />
+
+    <Suspense fallback={<LinearProgress />}>
+      <Switch>
+        <Route path={routes.HOME} exact component={ChoosePizzaSize} />
+        <Route path={routes.CHOOSE_PIZZA_FLAVOURS} component={ChoosePizzaFlavours} />
+        <Route path={routes.CHOOSE_PIZZA_QUANTITY} component={ChoosePizzaQuantity} />
+        <Route path={routes.CHECKOUT} exact component={Checkout} />
+        <Route path={routes.CHECKOUT_CONFIRMATION} component={CheckoutConfirmation} />
+        <Route path={routes.CHECKOUT_SUCCESS} component={CheckoutSuccess} />
+      </Switch>
+    </Suspense>
+  </>
 )
+
+const style = (theme) => ({
+  main: theme.mixins.toolbar
+})
+
+const Spacer = withStyles(style)(({ classes }) => (
+  <div className={classes.main} />
+))
 
 export default Main

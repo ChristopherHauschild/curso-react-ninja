@@ -1,21 +1,60 @@
-import React, { Fragment } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { CssBaseline } from '@material-ui/core'
+import React, { lazy, Suspense, useEffect, useState } from 'react'
+import { Redirect, Route, Switch } from 'react-router-dom'
+import { LinearProgress } from '@material-ui/core'
+import firebase from 'services/firebase'
+import t from 'prop-types'
 
-import { MainPage } from 'pages/main'
-import { Login } from 'pages/login'
+import { useAuth } from 'hooks'
+import { HOME, LOGIN } from 'routes'
 
-const App = () => (
-  <Fragment>
-    <CssBaseline />
+const MainPage = lazy(() => import('pages/main'))
+const Login = lazy(() => import('pages/login'))
 
-    <BrowserRouter>
+function App ({ location }) {
+  const { userInfo, setUserInfo } = useAuth()
+  const [didCheckUserIn, setDidCheckUserIn] = useState(false)
+
+  const { isUserLoggedIn } = userInfo
+
+  // executa somemente uma vez, quando component for renderizado === componentDidMount
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+      console.log('Dados do usuário:', user)
+      setUserInfo({
+        isUserLoggedIn: !!user,
+        user: user && {
+          ...user,
+          firstName: user.displayName.split(' ')[0]
+        }
+      })
+      setDidCheckUserIn(true)
+    })
+  }, [setUserInfo])
+
+  if (!didCheckUserIn) {
+    return <LinearProgress />
+  }
+
+  if (isUserLoggedIn && location.pathname === LOGIN) {
+    return <Redirect to={HOME} />
+  }
+
+  if (!isUserLoggedIn && location.pathname !== LOGIN) {
+    return <Redirect to={LOGIN} />
+  }
+
+  return (
+    <Suspense fallback={<LinearProgress />}>
       <Switch>
-        <Route path='/login' component={Login} />
+        <Route path={LOGIN} component={Login} />
         <Route component={MainPage} />
       </Switch>
-    </BrowserRouter>
-  </Fragment>
-)
+    </Suspense>
+  )
+}
+
+App.propTypes = {
+  location: t.object.isRequired
+}
 
 export default App

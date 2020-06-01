@@ -1,1 +1,2 @@
-export { default as Login } from './login'
+export { default } from './login'
+// exportado como default por conta do Lazy

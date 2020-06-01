@@ -1,1 +1,2 @@
-export { default as MainPage } from './main'
+export { default } from './main'
+// exportado como default por conta do Lazy
