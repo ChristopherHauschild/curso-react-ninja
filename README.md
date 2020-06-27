@@ -6,6 +6,10 @@ Curso disponibilizado pelo desenvolvedor <a hrfe="https://github.com/fdaciuk">Fe
   <img width="900px" src="https://github.com/ChristopherHauschild/curso-react-ninja/blob/master/logoRN.png?raw=true" />
 </p>
 
+## Aplicações e Projetos desenvolvidos: :rocket:
+
+### <p align="center"><a href="https://github.com/ChristopherHauschild/GitHubApp-React.js">Github App<a> &nbsp; | &nbsp; <a href="https://github.com/ChristopherHauschild/markdown-editor-react">Markdown Editor</a> &nbsp; | &nbsp; <a href="https://github.com/ChristopherHauschild/counters-redux-reactninja">Counters (Redux)</a> &nbsp; | &nbsp; <a href="https://github.com/ChristopherHauschild/todoList-buscaCep-redux-react">Todo List + Busca CEP</a> &nbsp; | &nbsp; <a href="https://github.com/ChristopherHauschild/app-reactflix-redux-reactninja">Reactflix</a> &nbsp; | &nbsp; <a href="https://github.com/ChristopherHauschild/curso-react-ninja/tree/master/M04/reactzzaria">Reactzzaria</a></p>
+
 ## O que você irá aprender neste curso: :heavy_check_mark:
 <ul>
   <li>Criar aplicações utilizando o React.js de forma correta.</li>
