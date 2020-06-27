@@ -1,4 +1,4 @@
-# <p align="center"> &nbsp; Reactzarria &nbsp; </p>
+# <p align="center"> :pizza: &nbsp; Reactzarria &nbsp; :pizza: </p>
 
 <p align="justify">
 Aplicação desenvolvida durante o quarto módulo do curso React.js Ninja - React Completo, disponibilizado por <a href="https://github.com/fdaciuk">Fernando Daciuk</a> na platafaforma Udemy. O curso visa a capacitação para atuar no mercado de trabalho com React.js, oferecendo conteúdos que visam trabalhar os fundamentos dessa biblioteca JS além do desenvolvimento de aplicações estruturadas com a mesma.
