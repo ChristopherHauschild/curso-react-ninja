@@ -5,10 +5,10 @@ Aplicação desenvolvida durante o quarto módulo do curso React.js Ninja - Reac
 
 A aplicação consiste num sistema de gerenciamento para pizzarias, e conta tanto com um sistema para o cliente realizar o acesso e fazer os pedidos, quanto com um sistema em que o administrador pode fazer o cadastro de novos tamanhos e sabores de pizza, além de administrar o andamento dos pedidos.
 O banco de dados ficou à cargo do Firebase, enquanto a estilização da interface contou com o auxílio do Material UI. Realizou-se o deploy do sistema para clientes a partir do Netlify.
-</p> <br /> <br />
+</p> <br /><br />
 
 <p align="center">
-  <img width="900px" src="" />
+  <img width="900px" src="https://github.com/ChristopherHauschild/curso-react-ninja/blob/master/M04/reactzzaria/RZR.gif?raw=true" />
  </p>
 
 <hr>
