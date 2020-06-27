@@ -10,7 +10,6 @@ O banco de dados ficou à cargo do Firebase, enquanto a estilização da interfa
 <p align="center">
   <img width="900px" src="https://github.com/ChristopherHauschild/curso-react-ninja/blob/master/M04/reactzzaria/RZR.gif?raw=true" />
  </p>
-
 <hr>
 
 ## Linguagens e tecnologias utilizadas: :computer:
