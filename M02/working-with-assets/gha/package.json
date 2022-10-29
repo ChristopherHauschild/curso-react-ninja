@@ -21,7 +21,7 @@
     "standard-loader": "^4.0.0",
     "style-loader": "0.13.1",
     "webpack": "^1.13.1",
-    "webpack-dashboard": "0.2.0",
+    "webpack-dashboard": "3.3.7",
     "webpack-dev-server": "^1.14.1",
     "webpack-validator": "^2.2.2",
     "@kadira/storybook": "^2.21.0"
